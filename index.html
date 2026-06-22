@@ -37,7 +37,7 @@
             width: 100%;
             height: 100%;
             overflow-x: hidden;
-            background: #1a1310;
+            background: #0a0807;
         }
 
         body {
@@ -47,9 +47,47 @@
             align-items: center;
             padding: 20px;
             font-family: 'Crimson Text', 'Georgia', serif;
-            background: radial-gradient(ellipse at 20% 30%, #2a1e18, #0f0b09);
+            background: radial-gradient(ellipse at 20% 30%, #1a1410, #0a0807);
             position: relative;
             transition: padding 0.3s ease;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(2px 2px at 160px 30px, #ddd, transparent),
+                radial-gradient(1px 1px at 200px 60px, #fff, transparent),
+                radial-gradient(2px 2px at 250px 20px, #eee, transparent),
+                radial-gradient(1px 1px at 300px 90px, rgba(255, 255, 255, 0.7), transparent),
+                radial-gradient(2px 2px at 350px 40px, #ddd, transparent),
+                radial-gradient(1px 1px at 400px 70px, #fff, transparent),
+                radial-gradient(2px 2px at 450px 30px, #eee, transparent),
+                radial-gradient(1px 1px at 500px 80px, rgba(255, 255, 255, 0.5), transparent),
+                radial-gradient(2px 2px at 550px 50px, #ddd, transparent),
+                radial-gradient(1px 1px at 600px 20px, #fff, transparent),
+                radial-gradient(2px 2px at 650px 90px, #eee, transparent),
+                radial-gradient(1px 1px at 700px 40px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 750px 60px, #ddd, transparent),
+                radial-gradient(1px 1px at 800px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 850px 70px, #eee, transparent),
+                radial-gradient(1px 1px at 900px 50px, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(2px 2px at 950px 20px, #ddd, transparent),
+                radial-gradient(1px 1px at 1000px 80px, #fff, transparent),
+                radial-gradient(2px 2px at 1050px 40px, #eee, transparent),
+                radial-gradient(1px 1px at 1100px 90px, rgba(255, 255, 255, 0.7), transparent);
+            background-size: 200px 200px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
         }
 
         body.mobile-view {
@@ -278,21 +316,6 @@
             box-shadow: 0 12px 35px rgba(232, 122, 74, 0.5), 0 0 0 2px var(--color-gold);
         }
 
-        .utility-btn.active-audio {
-            background: linear-gradient(135deg, var(--color-sunset), var(--color-bloom));
-            animation: pulse-audio 1.5s infinite;
-        }
-
-        @keyframes pulse-audio {
-            0%,
-            100% {
-                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--color-gold), 0 0 0 0 rgba(232, 122, 74, 0.4);
-            }
-            50% {
-                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--color-gold), 0 0 0 8px rgba(232, 122, 74, 0);
-            }
-        }
-
         body.fullscreen-landscape {
             padding: 0;
             transform: rotate(0deg);
@@ -372,6 +395,7 @@
             height: 700px;
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
             transition: all 0.3s ease;
+            z-index: 1;
         }
 
         .book-wrapper {
@@ -521,7 +545,7 @@
         }
 
         .page-right {
-            background: var(--color-paper);
+            background: #f8f0e8;
             box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
 
@@ -595,49 +619,30 @@
             position: relative;
         }
 
-        .scene-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(26, 19, 16, 0.3);
-            pointer-events: none;
-        }
-
-        .scene-page .scene-title,
-        .scene-page .scene-text,
-        .scene-page .page-number {
-            position: relative;
-            z-index: 2;
-            color: #f5ede1;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
         .scene-page .scene-title {
-            border-bottom-color: rgba(201, 167, 105, 0.5);
-            color: #f5ede1;
+            color: #b8413a;
+            border-bottom-color: rgba(184, 65, 58, 0.4);
+            text-shadow: none;
         }
 
         .scene-page .scene-title::before,
         .scene-page .scene-title::after {
-            color: rgba(201, 167, 105, 0.7);
+            color: #b8413a;
         }
 
         .scene-page .scene-text {
-            color: #fcf7f0;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            color: #1a1410;
+            text-shadow: none;
         }
 
         .scene-page .scene-text::first-letter {
-            color: var(--color-gold-light);
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+            color: #b8413a;
+            text-shadow: none;
         }
 
         .scene-page .page-number {
-            color: #f5ede1;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+            color: #553b22;
+            text-shadow: none;
         }
 
         .scene-page .scene-image-container {
@@ -655,7 +660,6 @@
             border-bottom: 4px double var(--color-gold);
             position: relative;
             z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             font-family: 'Crimson Text', serif;
         }
 
@@ -692,7 +696,6 @@
             z-index: 2;
             font-weight: 400;
             letter-spacing: 0.3px;
-            text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.05);
             margin-bottom: 40px;
         }
 
@@ -704,7 +707,6 @@
             line-height: 1;
             margin-right: 10px;
             margin-top: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .page-number {
@@ -1028,15 +1030,6 @@
                 --color-brown-dark: #8a705a;
                 --color-brown-light: #c9a88a;
             }
-            .scene-text {
-                color: #d4c6b5;
-            }
-            .scene-title {
-                color: #e0d0b8;
-            }
-            .page-number {
-                color: #b8a58c;
-            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -1062,7 +1055,6 @@
                 </div>
 
                 <div class="book-content" id="bookContent">
-                    <!-- Generado dinámicamente -->
                 </div>
             </div>
         </div>
@@ -1096,9 +1088,6 @@
         </div>
 
         <div class="utility-controls">
-            <button class="utility-btn" id="audioBtn" title="Escuchar poema" aria-label="Escuchar poema">
-                <i class="fas fa-play"></i>
-            </button>
             <button class="utility-btn" id="fullscreenBtn" title="Pantalla completa" aria-label="Pantalla completa">
                 <i class="fas fa-expand"></i>
             </button>
@@ -1149,9 +1138,6 @@
 
         let currentPage = 0;
         let totalPages = poemFragments.length + 2;
-        let isSpeaking = false;
-        let speech = null;
-        let currentVoice = null;
         let isMobileView = false;
         let isFullscreenMode = false;
 
@@ -1159,7 +1145,6 @@
             checkViewport();
             initBook();
             setupControls();
-            loadVoices();
             setupOrientationCheck();
 
             setTimeout(() => {
@@ -1271,17 +1256,17 @@
                     `;
                 } else {
                     html = `
-                        <div class="page page-left scene-page" style="background: url('Escena9.jpg') center/cover no-repeat; position:relative;">
-                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(26,19,16,0.3);pointer-events:none;"></div>
-                            <h2 class="scene-title" style="position:relative;z-index:2;color:#f5ede1;text-shadow:0 2px 8px rgba(0,0,0,0.8);border-bottom-color:rgba(201,167,105,0.5);">${fragment.title}</h2>
-                            <p class="scene-text" style="position:relative;z-index:2;color:#fcf7f0;text-shadow:0 2px 10px rgba(0,0,0,0.9);">${fragment.text}</p>
-                            <div class="page-number" style="position:relative;z-index:2;color:#f5ede1;text-shadow:0 2px 8px rgba(0,0,0,0.8);">${currentPage}</div>
+                        <div class="page page-left scene-page" style="background: url('Escena9.jpg') center/cover no-repeat; position:relative; background-color: #f8f0e8; background-blend-mode: overlay;">
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(248,240,232,0.0);pointer-events:none;"></div>
+                            <h2 class="scene-title" style="position:relative;z-index:2;color:#b8413a;border-bottom-color:rgba(184,65,58,0.4);text-shadow:none;">${fragment.title}</h2>
+                            <p class="scene-text" style="position:relative;z-index:2;color:#1a1410;text-shadow:none;">${fragment.text}</p>
+                            <div class="page-number" style="position:relative;z-index:2;color:#553b22;text-shadow:none;">${currentPage}</div>
                         </div>
-                        <div class="page page-right scene-image-container" style="display:flex;align-items:center;justify-content:center;padding:40px;background:var(--color-paper);">
+                        <div class="page page-right" style="display:flex;align-items:center;justify-content:center;padding:40px;background:#f8f0e8;border-left:1px solid rgba(122,78,42,0.1);">
                             <img class="scene-image" src="${fragment.image}" alt="${fragment.title}" 
-                                 style="max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(122,78,42,0.3),0 0 0 12px var(--color-paper),0 0 0 14px rgba(122,78,42,0.2);"
+                                 style="max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.15),0 0 0 1px rgba(122,78,42,0.1),0 0 0 12px #f8f0e8,0 0 0 14px rgba(122,78,42,0.05);"
                                  onerror="this.src='https://images.unsplash.com/photo-1518893494013-481c1d8ed3fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80&txt=${fragment.title}'">
-                            <div class="page-number" style="right:50px;">${currentPage}</div>
+                            <div class="page-number" style="right:50px;color:#553b22;">${currentPage}</div>
                         </div>
                     `;
                 }
@@ -1302,7 +1287,6 @@
             const mobileNextBtn = document.getElementById('mobileNextBtn');
             const currentPageNum = document.getElementById('currentPageNum');
             const mobileCurrentPageNum = document.getElementById('mobileCurrentPageNum');
-            const audioBtn = document.getElementById('audioBtn');
 
             prevBtn.disabled = currentPage === 0;
             nextBtn.disabled = currentPage === totalPages - 1;
@@ -1320,28 +1304,12 @@
 
             currentPageNum.textContent = pageDisplay;
             mobileCurrentPageNum.textContent = pageDisplay;
-
-            const shouldShowAudioBtn = currentPage > 0 && currentPage < totalPages - 1;
-            audioBtn.style.display = shouldShowAudioBtn ? 'flex' : 'none';
-
-            if (isSpeaking) {
-                audioBtn.innerHTML = '<i class="fas fa-stop"></i>';
-                audioBtn.classList.add('active-audio');
-            } else {
-                audioBtn.innerHTML = '<i class="fas fa-play"></i>';
-                audioBtn.classList.remove('active-audio');
-            }
-
-            if (isSpeaking && (currentPage === 0 || currentPage === totalPages - 1)) {
-                stopSpeech();
-            }
         }
 
         function nextPage() {
             if (currentPage < totalPages - 1) {
                 currentPage++;
                 renderPage();
-                stopSpeech();
             }
         }
 
@@ -1349,7 +1317,6 @@
             if (currentPage > 0) {
                 currentPage--;
                 renderPage();
-                stopSpeech();
             }
         }
 
@@ -1358,16 +1325,11 @@
             document.getElementById('nextBtn').addEventListener('click', nextPage);
             document.getElementById('mobilePrevBtn').addEventListener('click', prevPage);
             document.getElementById('mobileNextBtn').addEventListener('click', nextPage);
-            document.getElementById('audioBtn').addEventListener('click', toggleSpeech);
             document.getElementById('fullscreenBtn').addEventListener('click', toggleFullscreen);
 
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowLeft') prevPage();
                 if (e.key === 'ArrowRight') nextPage();
-                if (e.key === ' ' || e.key === 'Spacebar') {
-                    e.preventDefault();
-                    toggleSpeech();
-                }
                 if (e.key === 'Escape' && isFullscreen()) {
                     exitFullscreen();
                 }
@@ -1405,90 +1367,6 @@
 
             document.addEventListener('fullscreenchange', handleFullscreenChange);
             document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-        }
-
-        function loadVoices() {
-            if ('speechSynthesis' in window) {
-                speechSynthesis.onvoiceschanged = () => {
-                    const voices = speechSynthesis.getVoices();
-                    const latinSpanishVoices = voices.filter(voice =>
-                        voice.lang.startsWith('es') &&
-                        (voice.name.includes('Latino') || voice.name.includes('Latin') || voice.lang.includes('419'))
-                    );
-
-                    if (latinSpanishVoices.length > 0) {
-                        currentVoice = latinSpanishVoices[0];
-                    } else {
-                        const spanishVoices = voices.filter(voice => voice.lang.startsWith('es'));
-                        if (spanishVoices.length > 0) {
-                            currentVoice = spanishVoices[0];
-                        }
-                    }
-                };
-
-                speechSynthesis.getVoices();
-            }
-        }
-
-        function toggleSpeech() {
-            if (isSpeaking) {
-                stopSpeech();
-            } else {
-                playSceneSpeech();
-            }
-        }
-
-        function playSceneSpeech() {
-            if (currentPage < 1 || currentPage > poemFragments.length) return;
-
-            const fragment = poemFragments[currentPage - 1];
-            const fullText = `${fragment.title}. ${fragment.text}`;
-
-            if ('speechSynthesis' in window) {
-                stopSpeech();
-
-                speech = new SpeechSynthesisUtterance();
-                speech.text = fullText;
-                speech.lang = 'es-LA';
-                speech.rate = 0.9;
-                speech.pitch = 1.0;
-                speech.volume = 1;
-
-                if (currentVoice) {
-                    speech.voice = currentVoice;
-                }
-
-                speech.onstart = () => {
-                    isSpeaking = true;
-                    document.getElementById('audioBtn').innerHTML = '<i class="fas fa-stop"></i>';
-                    document.getElementById('audioBtn').classList.add('active-audio');
-                };
-
-                speech.onend = () => {
-                    isSpeaking = false;
-                    document.getElementById('audioBtn').innerHTML = '<i class="fas fa-play"></i>';
-                    document.getElementById('audioBtn').classList.remove('active-audio');
-                };
-
-                speech.onerror = () => {
-                    isSpeaking = false;
-                    document.getElementById('audioBtn').innerHTML = '<i class="fas fa-play"></i>';
-                    document.getElementById('audioBtn').classList.remove('active-audio');
-                };
-
-                speechSynthesis.speak(speech);
-            } else {
-                alert('Tu navegador no soporta síntesis de voz. Prueba con Chrome o Edge.');
-            }
-        }
-
-        function stopSpeech() {
-            if (speechSynthesis.speaking) {
-                speechSynthesis.cancel();
-                isSpeaking = false;
-                document.getElementById('audioBtn').innerHTML = '<i class="fas fa-play"></i>';
-                document.getElementById('audioBtn').classList.remove('active-audio');
-            }
         }
 
         function preloadNextImage() {
@@ -1568,9 +1446,6 @@
 
             checkOrientation();
         }
-
-        window.addEventListener('beforeunload', stopSpeech);
-        window.addEventListener('pagehide', stopSpeech);
     </script>
 </body>
 </html>
