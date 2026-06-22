@@ -23,7 +23,7 @@
             --color-brown-light: #a67a4a;
             --color-ivory: #fefcf8;
             --color-sunset: #e87a4a;
-            --color-twilight: #2c1e16;
+            --color-twilight: #1a1310;
             --color-bloom: #d45a4a;
             --color-cherry: #b8413a;
             --color-tulip: #d45a4a;
@@ -37,7 +37,7 @@
             width: 100%;
             height: 100%;
             overflow-x: hidden;
-            background: var(--color-twilight);
+            background: #1a1310;
         }
 
         body {
@@ -47,7 +47,7 @@
             align-items: center;
             padding: 20px;
             font-family: 'Crimson Text', 'Georgia', serif;
-            background: radial-gradient(ellipse at 20% 30%, #3f2a1e, #1f1610);
+            background: radial-gradient(ellipse at 20% 30%, #2a1e18, #0f0b09);
             position: relative;
             transition: padding 0.3s ease;
         }
@@ -169,7 +169,7 @@
             display: none;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(135deg, rgba(44, 30, 22, 0.92), rgba(85, 59, 34, 0.92));
+            background: linear-gradient(135deg, rgba(26, 19, 16, 0.92), rgba(85, 59, 34, 0.92));
             padding: 8px 15px;
             border-radius: 40px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -230,7 +230,7 @@
         }
 
         .utility-btn {
-            background: linear-gradient(135deg, rgba(44, 30, 22, 0.9), rgba(85, 59, 34, 0.9));
+            background: linear-gradient(135deg, rgba(26, 19, 16, 0.9), rgba(85, 59, 34, 0.9));
             color: var(--color-ivory);
             border: none;
             width: 60px;
@@ -252,7 +252,7 @@
             height: 30px;
             font-size: 0.8rem;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--color-gold);
-            background: linear-gradient(135deg, rgba(44, 30, 22, 0.85), rgba(85, 59, 34, 0.85));
+            background: linear-gradient(135deg, rgba(26, 19, 16, 0.85), rgba(85, 59, 34, 0.85));
         }
 
         .utility-btn::before {
@@ -332,7 +332,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--color-twilight);
+            background: #1a1310;
             z-index: 9999;
             flex-direction: column;
             justify-content: center;
@@ -528,11 +528,7 @@
         .cover-page {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg,
-                    #2c1e16 0%,
-                    #5a3a28 30%,
-                    #c9a87c 70%,
-                    #b8413a 100%);
+            background: url('Escena1.png') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -555,152 +551,97 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.2) 0%, transparent 40%),
-                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 80c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm110 50c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zM95 180c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z' fill='%23ffffff' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.2) 0%, transparent 60%);
             pointer-events: none;
         }
 
-        .cover-ornament {
+        .cover-page .cover-title,
+        .cover-page .cover-subtitle,
+        .cover-page .cover-author {
+            display: none;
+        }
+
+        .end-page {
+            width: 100%;
+            height: 100%;
+            background: url('Escena8.png') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .end-page::before {
+            content: '';
             position: absolute;
-            color: rgba(255, 255, 255, 0.12);
-            font-size: 8rem;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(232, 122, 74, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(201, 167, 105, 0.08) 0%, transparent 60%);
+            pointer-events: none;
         }
 
-        body.mobile-view .cover-ornament {
-            font-size: 4rem;
+        .end-page .end-title {
+            display: none;
         }
 
-        .ornament-tl {
-            top: 40px;
-            left: 40px;
-            animation: float 20s infinite linear;
-        }
-
-        .ornament-tr {
-            top: 40px;
-            right: 40px;
-            animation: float 20s infinite linear reverse;
-        }
-
-        .ornament-bl {
-            bottom: 40px;
-            left: 40px;
-            animation: float 25s infinite linear;
-        }
-
-        .ornament-br {
-            bottom: 40px;
-            right: 40px;
-            animation: float 25s infinite linear reverse;
-        }
-
-        body.mobile-view .ornament-tl {
-            top: 20px;
-            left: 20px;
-        }
-        body.mobile-view .ornament-tr {
-            top: 20px;
-            right: 20px;
-        }
-        body.mobile-view .ornament-bl {
-            bottom: 20px;
-            left: 20px;
-        }
-        body.mobile-view .ornament-br {
-            bottom: 20px;
-            right: 20px;
-        }
-
-        @keyframes float {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .cover-title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            color: var(--color-ivory);
-            margin-bottom: 30px;
-            letter-spacing: 6px;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7), 0 0 40px rgba(232, 122, 74, 0.4), 0 0 80px rgba(201, 167, 105, 0.3);
-            z-index: 1;
+        .scene-page {
+            background: url('Escena9.jpg') center/cover no-repeat;
             position: relative;
-            font-family: 'Crimson Text', serif;
-            line-height: 1.2;
-            padding-bottom: 20px;
-            border-bottom: 3px double rgba(255, 255, 255, 0.3);
         }
 
-        body.mobile-view .cover-title {
-            font-size: 2rem;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-        }
-
-        .cover-title::after {
-            content: '❤️';
+        .scene-page::before {
+            content: '';
             position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--color-bloom);
-            font-size: 2rem;
-            text-shadow: 0 0 20px rgba(212, 90, 74, 0.5);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 19, 16, 0.3);
+            pointer-events: none;
         }
 
-        body.mobile-view .cover-title::after {
-            font-size: 1.2rem;
-            bottom: -8px;
-        }
-
-        .cover-subtitle {
-            font-size: 1.8rem;
-            font-style: italic;
-            color: var(--color-gold-light);
-            margin-bottom: 50px;
-            max-width: 700px;
-            line-height: 1.6;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-            z-index: 1;
+        .scene-page .scene-title,
+        .scene-page .scene-text,
+        .scene-page .page-number {
             position: relative;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
-            border: 1px solid rgba(201, 167, 105, 0.3);
-            backdrop-filter: blur(5px);
+            z-index: 2;
+            color: #f5ede1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
-        body.mobile-view .cover-subtitle {
-            font-size: 1rem;
-            padding: 12px;
-            margin-bottom: 25px;
-            border-radius: 10px;
+        .scene-page .scene-title {
+            border-bottom-color: rgba(201, 167, 105, 0.5);
+            color: #f5ede1;
         }
 
-        .cover-author {
-            font-size: 1.5rem;
+        .scene-page .scene-title::before,
+        .scene-page .scene-title::after {
+            color: rgba(201, 167, 105, 0.7);
+        }
+
+        .scene-page .scene-text {
+            color: #fcf7f0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        .scene-page .scene-text::first-letter {
             color: var(--color-gold-light);
-            padding: 20px 40px;
-            border-top: 2px solid rgba(201, 167, 105, 0.4);
-            z-index: 1;
-            position: relative;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            margin-top: 30px;
-            letter-spacing: 2px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
         }
 
-        body.mobile-view .cover-author {
-            font-size: 0.9rem;
-            padding: 10px 20px;
-            margin-top: 20px;
+        .scene-page .page-number {
+            color: #f5ede1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .scene-page .scene-image-container {
+            display: none;
         }
 
         .scene-title {
@@ -766,61 +707,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .scene-image-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            padding: 40px;
-            position: relative;
-        }
-
-        body.mobile-view .scene-image-container {
-            padding: 20px;
-        }
-
-        .scene-image-container::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 2px solid var(--color-gold);
-            border-radius: 10px;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.3;
-        }
-
-        body.mobile-view .scene-image-container::before {
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-        }
-
-        .scene-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(122, 78, 42, 0.3), 0 0 0 12px var(--color-paper), 0 0 0 14px rgba(122, 78, 42, 0.2);
-            filter: sepia(0.1) brightness(1.05);
-            transition: all 0.5s ease;
-            z-index: 2;
-        }
-
-        body.mobile-view .scene-image {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 3px 10px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(122, 78, 42, 0.2), 0 0 0 8px var(--color-paper), 0 0 0 10px rgba(122, 78, 42, 0.15);
-        }
-
-        .scene-image:hover {
-            transform: scale(1.02);
-            filter: sepia(0) brightness(1.1);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(122, 78, 42, 0.4), 0 0 0 12px var(--color-paper), 0 0 0 14px rgba(122, 78, 42, 0.3);
-        }
-
         .page-number {
             position: absolute;
             bottom: 25px;
@@ -838,61 +724,6 @@
 
         .page-right .page-number {
             right: 50px;
-        }
-
-        .end-page {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg,
-                    #2c1e16 0%,
-                    #553b22 50%,
-                    #c9a87c 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .end-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(232, 122, 74, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(201, 167, 105, 0.15) 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-
-        .end-title {
-            font-size: 9rem;
-            font-weight: 800;
-            color: var(--color-gold);
-            text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8), 0 0 60px rgba(232, 122, 74, 0.5), 0 0 100px rgba(201, 167, 105, 0.4);
-            transform: rotate(-5deg);
-            position: relative;
-            z-index: 1;
-            font-family: 'Crimson Text', serif;
-            letter-spacing: 8px;
-            animation: glow 3s ease-in-out infinite alternate;
-        }
-
-        body.mobile-view .end-title {
-            font-size: 3.5rem;
-            letter-spacing: 3px;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8), 0 0 60px rgba(232, 122, 74, 0.5), 0 0 100px rgba(201, 167, 105, 0.4);
-            }
-            to {
-                text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8), 0 0 80px rgba(232, 122, 74, 0.7), 0 0 120px rgba(201, 167, 105, 0.5);
-            }
         }
 
         .book-controls {
@@ -992,7 +823,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--color-twilight), var(--color-brown-dark));
+            background: linear-gradient(135deg, #1a1310, #553b22);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1073,9 +904,6 @@
             .book-container {
                 height: 600px;
             }
-            .cover-title {
-                font-size: 3.8rem;
-            }
             .scene-title {
                 font-size: 2.4rem;
             }
@@ -1091,22 +919,12 @@
             .book-container {
                 height: 550px;
             }
-            .cover-title {
-                font-size: 3.2rem;
-                letter-spacing: 4px;
-            }
-            .cover-subtitle {
-                font-size: 1.5rem;
-            }
             .scene-title {
                 font-size: 2rem;
             }
             .scene-text {
                 font-size: 1.2rem;
                 line-height: 1.9;
-            }
-            .end-title {
-                font-size: 7rem;
             }
             .book-spine {
                 left: -40px;
@@ -1153,18 +971,6 @@
             body:not(.mobile-view) .page {
                 padding: 30px 20px;
             }
-            body:not(.mobile-view) .cover-title {
-                font-size: 2.5rem;
-                letter-spacing: 3px;
-            }
-            body:not(.mobile-view) .cover-subtitle {
-                font-size: 1.2rem;
-                padding: 15px;
-            }
-            body:not(.mobile-view) .cover-author {
-                font-size: 1.2rem;
-                padding: 15px 25px;
-            }
             body:not(.mobile-view) .scene-title {
                 font-size: 1.8rem;
                 margin-bottom: 25px;
@@ -1176,12 +982,6 @@
             }
             body:not(.mobile-view) .scene-text::first-letter {
                 font-size: 2.8rem;
-            }
-            body:not(.mobile-view) .end-title {
-                font-size: 5rem;
-            }
-            body:not(.mobile-view) .scene-image-container {
-                padding: 20px;
             }
             body:not(.mobile-view) .book-spine {
                 display: none;
@@ -1306,7 +1106,6 @@
     </div>
 
     <script>
-        // Poema dividido en 6 fragmentos (imágenes 2 a 7)
         const poemFragments = [{
             id: 1,
             title: "La dulce conspiración",
@@ -1449,47 +1248,17 @@
             let html = '';
 
             if (currentPage === 0) {
-                if (isMobileView && !isFullscreenMode) {
-                    html = `
-                        <div class="single-page cover-page">
-                            <div class="cover-ornament ornament-tl">❤️</div>
-                            <div class="cover-ornament ornament-tr">✦</div>
-                            <div class="cover-ornament ornament-bl">✿</div>
-                            <div class="cover-ornament ornament-br">❤️</div>
-                            <h1 class="cover-title">Para Johanna</h1>
-                            <p class="cover-subtitle">La dulce conspiración</p>
-                            <p class="cover-author">Un poema de amor</p>
-                            <div class="page-number mobile-left">Portada</div>
-                        </div>
-                    `;
-                } else {
-                    html = `
-                        <div class="cover-page">
-                            <div class="cover-ornament ornament-tl">❤️</div>
-                            <div class="cover-ornament ornament-tr">✦</div>
-                            <div class="cover-ornament ornament-bl">✿</div>
-                            <div class="cover-ornament ornament-br">❤️</div>
-                            <h1 class="cover-title">Para Johanna</h1>
-                            <p class="cover-subtitle">La dulce conspiración</p>
-                            <p class="cover-author">Un poema de amor</p>
-                        </div>
-                    `;
-                }
+                html = `
+                    <div class="cover-page">
+                        <div class="page-number" style="position:absolute;bottom:25px;right:50px;color:rgba(255,255,255,0.6);text-shadow:0 2px 8px rgba(0,0,0,0.5);">Portada</div>
+                    </div>
+                `;
             } else if (currentPage === totalPages - 1) {
-                if (isMobileView && !isFullscreenMode) {
-                    html = `
-                        <div class="single-page end-page">
-                            <div class="end-title">FIN</div>
-                            <div class="page-number mobile-left">Final</div>
-                        </div>
-                    `;
-                } else {
-                    html = `
-                        <div class="end-page">
-                            <div class="end-title">FIN</div>
-                        </div>
-                    `;
-                }
+                html = `
+                    <div class="end-page">
+                        <div class="page-number" style="position:absolute;bottom:25px;right:50px;color:rgba(255,255,255,0.6);text-shadow:0 2px 8px rgba(0,0,0,0.5);">Final</div>
+                    </div>
+                `;
             } else {
                 const fragment = poemFragments[currentPage - 1];
                 if (isMobileView && !isFullscreenMode) {
@@ -1497,26 +1266,22 @@
                         <div class="single-page scene-page">
                             <h2 class="scene-title">${fragment.title}</h2>
                             <p class="scene-text">${fragment.text}</p>
-                            <div class="scene-image-container">
-                                <img class="scene-image" src="${fragment.image}" alt="${fragment.title}" 
-                                     onerror="this.src='https://images.unsplash.com/photo-1518893494013-481c1d8ed3fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80&txt=${fragment.title}'">
-                            </div>
                             <div class="page-number mobile-left">${currentPage}</div>
                         </div>
                     `;
                 } else {
                     html = `
-                        <div class="page page-left">
-                            <h2 class="scene-title">${fragment.title}</h2>
-                            <p class="scene-text">${fragment.text}</p>
-                            <div class="page-number">${currentPage}</div>
+                        <div class="page page-left scene-page" style="background: url('Escena9.jpg') center/cover no-repeat; position:relative;">
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(26,19,16,0.3);pointer-events:none;"></div>
+                            <h2 class="scene-title" style="position:relative;z-index:2;color:#f5ede1;text-shadow:0 2px 8px rgba(0,0,0,0.8);border-bottom-color:rgba(201,167,105,0.5);">${fragment.title}</h2>
+                            <p class="scene-text" style="position:relative;z-index:2;color:#fcf7f0;text-shadow:0 2px 10px rgba(0,0,0,0.9);">${fragment.text}</p>
+                            <div class="page-number" style="position:relative;z-index:2;color:#f5ede1;text-shadow:0 2px 8px rgba(0,0,0,0.8);">${currentPage}</div>
                         </div>
-                        <div class="page page-right">
-                            <div class="scene-image-container">
-                                <img class="scene-image" src="${fragment.image}" alt="${fragment.title}" 
-                                     onerror="this.src='https://images.unsplash.com/photo-1518893494013-481c1d8ed3fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80&txt=${fragment.title}'">
-                            </div>
-                            <div class="page-number">${currentPage}</div>
+                        <div class="page page-right scene-image-container" style="display:flex;align-items:center;justify-content:center;padding:40px;background:var(--color-paper);">
+                            <img class="scene-image" src="${fragment.image}" alt="${fragment.title}" 
+                                 style="max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(122,78,42,0.3),0 0 0 12px var(--color-paper),0 0 0 14px rgba(122,78,42,0.2);"
+                                 onerror="this.src='https://images.unsplash.com/photo-1518893494013-481c1d8ed3fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80&txt=${fragment.title}'">
+                            <div class="page-number" style="right:50px;">${currentPage}</div>
                         </div>
                     `;
                 }
