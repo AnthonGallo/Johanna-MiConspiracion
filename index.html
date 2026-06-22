@@ -1156,6 +1156,14 @@
 
             window.addEventListener('resize', checkViewport);
             window.addEventListener('orientationchange', checkViewport);
+
+            if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                if (!isFullscreen()) {
+                    setTimeout(() => {
+                        enterFullscreen();
+                    }, 500);
+                }
+            }
         });
 
         function checkViewport() {
