@@ -252,70 +252,6 @@
             border: 1px solid rgba(201, 167, 105, 0.25);
         }
 
-        .utility-controls {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            display: flex;
-            gap: 8px;
-            z-index: 20;
-        }
-
-        body.mobile-view .utility-controls {
-            top: 6px;
-            right: 6px;
-            gap: 5px;
-        }
-
-        .utility-btn {
-            background: linear-gradient(135deg, rgba(26, 19, 16, 0.9), rgba(85, 59, 34, 0.9));
-            color: var(--color-ivory);
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 0 2px var(--color-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        body.mobile-view .utility-btn {
-            width: 30px;
-            height: 30px;
-            font-size: 0.8rem;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--color-gold);
-            background: linear-gradient(135deg, rgba(26, 19, 16, 0.85), rgba(85, 59, 34, 0.85));
-        }
-
-        .utility-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.15));
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .utility-btn i {
-            position: relative;
-            z-index: 2;
-        }
-
-        .utility-btn:hover {
-            background: linear-gradient(135deg, var(--color-brown-light), var(--color-sunset));
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 12px 35px rgba(232, 122, 74, 0.5), 0 0 0 2px var(--color-gold);
-        }
-
         body.fullscreen-landscape {
             padding: 0;
             transform: rotate(0deg);
@@ -328,19 +264,6 @@
             max-width: 100vw;
             margin: 0;
             border-radius: 0;
-        }
-
-        body.fullscreen-landscape .utility-btn {
-            width: 30px;
-            height: 30px;
-            font-size: 0.8rem;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--color-gold);
-        }
-
-        body.fullscreen-landscape .utility-controls {
-            top: 8px;
-            right: 8px;
-            gap: 6px;
         }
 
         body.fullscreen-landscape .book-content {
@@ -946,16 +869,6 @@
             .book-controls {
                 display: none;
             }
-            body:not(.mobile-view) .utility-controls {
-                top: 15px;
-                right: 15px;
-                gap: 10px;
-            }
-            body:not(.mobile-view) .utility-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
             body:not(.mobile-view) .page {
                 padding: 40px 30px;
             }
@@ -1086,12 +999,6 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
-
-        <div class="utility-controls">
-            <button class="utility-btn" id="fullscreenBtn" title="Pantalla completa" aria-label="Pantalla completa">
-                <i class="fas fa-expand"></i>
-            </button>
-        </div>
     </div>
 
     <script>
@@ -1156,6 +1063,19 @@
 
             window.addEventListener('resize', checkViewport);
             window.addEventListener('orientationchange', checkViewport);
+
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(() => {});
+            }
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen().catch(() => {});
+            } else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen().catch(() => {});
+            } else if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen().catch(() => {});
+            }
         });
 
         function checkViewport() {
@@ -1325,7 +1245,6 @@
             document.getElementById('nextBtn').addEventListener('click', nextPage);
             document.getElementById('mobilePrevBtn').addEventListener('click', prevPage);
             document.getElementById('mobileNextBtn').addEventListener('click', nextPage);
-            document.getElementById('fullscreenBtn').addEventListener('click', toggleFullscreen);
 
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowLeft') prevPage();
@@ -1377,30 +1296,11 @@
             }
         }
 
-        function toggleFullscreen() {
-            if (!isFullscreen()) {
-                enterFullscreen();
-            } else {
-                exitFullscreen();
-            }
-        }
-
-        function enterFullscreen() {
-            const elem = document.documentElement;
-
-            if (screen.orientation && screen.orientation.lock) {
-                screen.orientation.lock('landscape').catch(() => {});
-            }
-
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-            } else if (elem.mozRequestFullScreen) {
-                elem.mozRequestFullScreen();
-            } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
-            }
+        function isFullscreen() {
+            return !!(document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.mozFullScreenElement ||
+                document.msFullscreenElement);
         }
 
         function exitFullscreen() {
@@ -1419,28 +1319,16 @@
             }
         }
 
-        function isFullscreen() {
-            return !!(document.fullscreenElement ||
-                document.webkitFullscreenElement ||
-                document.mozFullScreenElement ||
-                document.msFullscreenElement);
-        }
-
         function handleFullscreenChange() {
-            const btn = document.getElementById('fullscreenBtn');
             isFullscreenMode = isFullscreen();
 
             if (isFullscreenMode) {
                 document.body.classList.add('fullscreen-landscape');
-                btn.innerHTML = '<i class="fas fa-compress"></i>';
-                btn.title = 'Salir de pantalla completa';
                 document.body.classList.remove('mobile-view');
                 hideMobileControls();
                 updatePageDisplay();
             } else {
                 document.body.classList.remove('fullscreen-landscape');
-                btn.innerHTML = '<i class="fas fa-expand"></i>';
-                btn.title = 'Pantalla completa';
                 setTimeout(checkViewport, 100);
             }
 
